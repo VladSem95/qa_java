@@ -18,6 +18,7 @@ public class CatTest {
     private Predator predator;
 
 
+
     @Test
     public void catGetSound() {
 
@@ -28,24 +29,11 @@ public class CatTest {
     }
 
     @Test
-    public void catEatMeat() {
-        Cat cat = new Cat(feline);
-        try {
-            Mockito.when(predator.eatMeat()).thenReturn(feline.eatMeat());
-            Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-            predator.eatMeat();
-        } catch(java.lang.Exception exception) {
-
-        }
-    }
-    @Test
-    public void catGetFoodException() throws Exception {
-
-        Cat cat = new Cat(feline);
-        try {
-            List<String> actualFoodCat = cat.getFood();
-        }
-        catch (NullPointerException exception) {
-        }
+    public void catEatMeat() throws Exception {
+        this.predator = feline;
+            Mockito.when(predator.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+            List<String>actualEatCat = predator.eatMeat();
+            List<String>expectedEatCat = List.of("Животные", "Птицы", "Рыба");
+            assertEquals(expectedEatCat,actualEatCat);
     }
 }
