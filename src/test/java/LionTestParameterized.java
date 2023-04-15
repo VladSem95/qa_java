@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 
 @RunWith(Parameterized.class)
-public class LionTest {
+public class LionTestParam {
     private final String sexLion;
     private final boolean expectedHasMane;
 
@@ -25,7 +25,7 @@ public class LionTest {
 
     Feline feline = Mockito.mock(Feline.class);
 
-    public LionTest(String sexLion, boolean expectedHasMane) {
+    public LionTestParam(String sexLion, boolean expectedHasMane) {
         this.sexLion = sexLion;
         this.expectedHasMane = expectedHasMane;
     }
