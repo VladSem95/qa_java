@@ -25,11 +25,21 @@ public class LionTestNotParameterized {
     }
     @Test
     public void getKittensLion() throws Exception {
-
         Lion lion = new Lion("Самка", feline);
         Mockito.when(feline.getKittens()).thenReturn(1);
         int expectedKittensCountLion = 1;
         int actualKittensCountLion = lion.getKittens();
         assertEquals(expectedKittensCountLion, actualKittensCountLion);
+    }
+    @Test
+    public void lionSexNegative() {
+        try {
+            Lion lion = new Lion("Животное", feline);
+            boolean expectedHasMane = false;
+            boolean actualHasMane = lion.doesHaveMane();
+            assertEquals(expectedHasMane, actualHasMane);
+        } catch(java.lang.Exception exception) {
+            System.out.println("Невозможно определить наличие гривы");
+        }
     }
 }

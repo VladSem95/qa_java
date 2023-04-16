@@ -6,7 +6,6 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import java.lang.Exception;
-import java.util.List;
 
 
 import static org.junit.Assert.assertEquals;
@@ -36,32 +35,22 @@ public class LionTestParameterized {
     public static Object[][] getSexAndExpected() {
         return new Object[][]{
                 {"Самец", true},
-                {"Самка", false},
-                {"Животное", false}
+                {"Самка", false}
         };
     }
 
     @Test
-    public void lionSex() throws Exception {
-        try {
+    public void lionSexPositive() throws Exception {
             Lion lion = new Lion(sexLion, feline);
             boolean actualHasMane = lion.doesHaveMane();
             assertEquals(expectedHasMane, actualHasMane);
-        } catch (java.lang.Exception exception) {
-            System.out.println("Используйте допустимые значения пола животного - самец или самка");
-        }
     }
     @Test
     public void doesHaveManeLion() throws Exception {
-        try {
-
         Lion lion = new Lion(sexLion,feline);
         boolean expectedHasManeLion = expectedHasMane;
         boolean actualHasManeLion = lion.doesHaveMane();
         assertEquals(expectedHasManeLion,actualHasManeLion);
-        } catch(java.lang.Exception exception) {
-            System.out.println("У данного пола невозможно определить наличие гривы");
-        }
     }
 }
 
